@@ -10,9 +10,6 @@
     grid-template-rows: auto 1fr;
     gap: 15px;
     height: 100vh;
-}
-
-.container div {
     font-size: 32px;
 }
 
@@ -142,7 +139,7 @@ form input {
 .sidebar {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
-    background-color: aqua;
+    background: linear-gradient(to bottom, aqua, orange 60%);
 }
 
 .sidebar .logo {
@@ -180,14 +177,13 @@ form input {
 }
 
 .main-content {
-    max-height: 69vh;
     grid-column: 2 / 3;
     display: grid;
-    gap: 15px;
+    gap: 24px;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
     padding: 30px 15px;
     background-color: rgba(200, 200, 225, 0.35);
+    border-radius: 22px 8px;
 }
 .projects .card, .announcements-grid, .trending-grid {
     background-color: #ffffee;
@@ -195,15 +191,15 @@ form input {
 
 .main-content .projects{
     grid-area: 1 / 1 / 3 / 2;
-    display: flex;
-    flex-direction: column;
+    padding-bottom: 24px;
 }
 
 .projects .projects-grid {
     height: 100%;
     display: grid;
-    gap: 15px;
+    gap: 32px;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .main-content .content-title {
@@ -213,14 +209,21 @@ form input {
 }
 
 .projects .card {
-    height: 150px;
     padding: 12px 8px;
     border-radius: 8px;
     border-left: 4px solid yellow;
+    position: relative;
+}
+
+.card .menu {
+    position: absolute;
+    bottom: 8px;  
+    right: 10px;
 }
 
 .card p {
     font-size: 1rem;
+    margin-bottom: 8px;
     color:rgba(0, 0, 0, 0.5)
 }
 
@@ -228,6 +231,16 @@ form input {
     font-size: 1.25rem;
     font-weight: 700;
     color: black;
+}
+
+.card .menu button{
+    margin: 4px;
+    background: none;
+    border: none;
+}
+
+.card .menu button:hover {
+    transform: scale(1.2);
 }
 
 .main-content .announcements-grid {
@@ -239,8 +252,39 @@ form input {
 }
 
 .announcements-grid, .trending-grid {
-    max-height: 100px;
     display: grid;
     grid-template-rows: repeat((auto-fit, 1fr));
-    overflow: auto;
+    width: 20vw;
+    border-radius: 8px;
+}
+
+.announcements-grid .card {
+    padding: 15px;
+}
+
+.trending-grid {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+}
+
+.trending-grid .card {
+    display: flex;
+    padding: 12px;
+    align-items: center;
+}
+
+.trending-grid img {
+    margin: 1rem;
+}
+
+.trending-grid .card p:first-child {
+    margin-bottom: 4px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    width: 90%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
+    justify-self: center;
 }
